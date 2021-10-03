@@ -38,12 +38,13 @@ func main() {
       if err != nil {
         text = "ERR!\nNo such user!"
       } else {
-        text = "OK!\n" + string(b)
+        text = "OK.\n" + string(b)
       }
     }
 
     w.Write([]byte(fmt.Sprintln(text)))
+    fmt.Printf("Requested username: %s\n", q.Username)
   }))
-  fmt.Print("Press 'Enter' to exit...")
+  fmt.Print("Press 'Enter' to exit...\n")
   bufio.NewReader(os.Stdin).ReadBytes('\n') 
 }

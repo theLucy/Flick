@@ -26,7 +26,7 @@ func main() {
 
     file, err := os.Open(filename)
     if err != nil {
-      text = "ERR!\nNo such user!"
+      text = "ERR:\nNo such user!"
     }
     defer func() {
       if err = file.Close(); err != nil {
@@ -36,15 +36,15 @@ func main() {
     if err == nil {
       b, err := ioutil.ReadAll(file)
       if err != nil {
-        text = "ERR!\nNo such user!"
+        text = "ERR:\nNo such user!"
       } else {
-        text = "OK.\n" + string(b)
+        text = "OK:\n" + string(b)
       }
     }
 
     w.Write([]byte(fmt.Sprintln(text)))
     fmt.Printf("Requested username: %s\n", q.Username)
   }))
-  fmt.Print("Press 'Enter' to exit...\n")
+  fmt.Print("Flick Finger Server is running on 0.0.0.0\n")
   bufio.NewReader(os.Stdin).ReadBytes('\n') 
 }
